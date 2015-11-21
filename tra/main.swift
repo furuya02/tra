@@ -75,9 +75,6 @@ class Main:PingDelegate{
         results[id].icmpType = icmpType
         results[id].msec = msec
         
-        //DEBUG
-        //print("recved \(srcAddr) type=\(icmpType) id=\(id)")
-        
         if (icmpType == 0){
             // 到達のパケットを受けてから100msだけ待機する
             usleep(100000)

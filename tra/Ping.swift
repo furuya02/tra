@@ -61,7 +61,6 @@ class Ping:NSObject{
         while(true){
             //ICMPパケットの受信
             recvBytes = recv(sock, &buf, bufLen, 0);
-//            print("recv \(bytes)bytes seq=\(seq)")
         
         
             packet = NSData(bytes: buf, length: recvBytes)
@@ -100,90 +99,11 @@ class Ping:NSObject{
         let m3 = (ipHeader.srcAddr & 0x0000FF00) >> 8
         let m4 = (ipHeader.srcAddr & 0x000000FF)
         let srcAddr = String(format: "%d.%d.%d.%d",m4,m3,m2,m1)
-//        result.srcAddr = srcAddr
-        //result.srcAddr = ipHeader.srcAddr
-//        result.type = icmpHdr.type
-        
-        //print(String(format:"%@ sum=%x seq=%d",srcAddr,ipHeader.sum,seq))
 
         delegate?.recved(recvBytes, srcAddr: srcAddr, icmpType: icmpHdr.type, msec:msec,id: id)
 
         return Int(icmpHdr.type)
     }
-    
-// ノンブロッキング
-//    u_long val=1;
-//    ioctlsocket(sock, FIONBIO, &val);
-
-    //    func send(ipAddr:String,id:UInt16,seq:UInt16,ttl:Int32) -> Int{
-//    func send_back(ipAddr:String,result:Result) -> Int{
-//        
-//        let id = result.ttl
-//        let seq = result.ttl
-//        let ttl = result.ttl
-//        
-//        //type = ECHO_REQUEST = 8
-//        var icmpHdr:IcmpHeader = IcmpHeader.init(type: 8, code: 0, sum: 0, id: id, seq: seq)
-//        icmpHdr.sum = (self.checksum(Cast.ptr(&icmpHdr,len: IcmpHeaderLen) as UnsafePointer<UInt8>, start:0,len:IcmpHeaderLen)).bigEndian
-//        let sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_ICMP);
-//        //let sock = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
-//        if (sock < 0) {
-//            delegate?.err("socket() faild. sock=\(sock)")
-//            return -1
-//        }
-//        var t = Int32(ttl)
-//        if( 0 != setsockopt(sock,IPPROTO_IP,IP_TTL,&t,4)){
-//            delegate?.err("error setsockopt")
-//            return -1
-//        }
-//        // sockaddr_in で宛先アドレス情報を生成
-//        var sockaddrIn = sockaddr_in()
-//        sockaddrIn.sin_family = UInt8(AF_INET)
-//        sockaddrIn.sin_addr.s_addr = inet_addr(ipAddr)
-//        sockaddrIn.sin_len = UInt8(sizeof(sockaddr_in))
-//        // sockaddr_in を sockaddr にキャストする
-//        var addr = (Cast.direct(&sockaddrIn) as sockaddr)
-//        let addrLen = UInt32(sizeof(sockaddr_in))
-//        
-//        // ICMPパケットの送信
-//        var bytes = sendto(sock, Cast.ptr(&icmpHdr,len: IcmpHeaderLen) as UnsafePointer<UInt8>, IcmpHeaderLen, 0, &addr, addrLen)
-//        if ( bytes < 1 ){
-//            delegate?.err("ERROR sendto()")
-//            return -1
-//        }
-//        delegate?.sended(bytes)
-//        
-//        let bufLen = 1600
-//        var buf = [Int8](count:bufLen,repeatedValue:0) // 受信バッファ
-//        //ICMPパケットの受信
-//        bytes = recv(sock, &buf, bufLen, 0);
-//        
-//        
-//        let packet = NSData(bytes: buf, length: bytes)
-//        // IPヘッダのデコード
-//        let ipHeader = UnsafePointer<IpHeader>(packet.subdataWithRange(NSMakeRange(0,IpHeaderLen)).bytes).memory
-//        // IPヘッダのサイズ取得（ICMPヘッダのオフセットを取得するため）
-//        let ipHdrlen = Int((ipHeader.verLen & 0x0F)*4)
-//        // ICMPヘッダのデコード(ICMPヘッダの最初サイズ8オクテットだけ取得する)
-//        icmpHdr = UnsafePointer<IcmpHeader>(packet.subdataWithRange(NSMakeRange(ipHdrlen,8)).bytes).memory
-//        
-//        // 送信元IPアドレスのデコード
-//        let m1 = (ipHeader.srcAddr & 0xFF000000) >> 24
-//        let m2 = (ipHeader.srcAddr & 0x00FF0000) >> 16
-//        let m3 = (ipHeader.srcAddr & 0x0000FF00) >> 8
-//        let m4 = (ipHeader.srcAddr & 0x000000FF)
-//        let srcAddr = String(format: "%d.%d.%d.%d",m4,m3,m2,m1)
-//        result.srcAddr = srcAddr
-//        //result.srcAddr = ipHeader.srcAddr
-//        result.type = icmpHdr.type
-//        
-//        print(String(format:"%@ sum=%x seq=%d",srcAddr,ipHeader.sum,seq))
-//        
-//        //NSLog(srcAddr)
-//        //delegate?.recved(bytes,srcAddr: srcAddr,type: icmpHdr.type,seq: seq)
-//        
-//        return Int(icmpHdr.type)
-//    }
     
 
     func checksum(buf:UnsafePointer<UInt8>,start:Int,len:Int) -> UInt16 {

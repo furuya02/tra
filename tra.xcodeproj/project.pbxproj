@@ -10,7 +10,6 @@
 		27E827841C01234700265344 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E827831C01234700265344 /* main.swift */; };
 		27E827911C0123C400265344 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8278D1C0123C400265344 /* Cast.swift */; };
 		27E827921C0123C400265344 /* IcmpHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8278E1C0123C400265344 /* IcmpHeader.swift */; };
-		27E827931C0123C400265344 /* IcmpPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8278F1C0123C400265344 /* IcmpPacket.swift */; };
 		27E827941C0123C400265344 /* IpHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E827901C0123C400265344 /* IpHeader.swift */; };
 		27E827981C0123CE00265344 /* NetName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E827951C0123CE00265344 /* NetName.swift */; };
 		27E827991C0123CE00265344 /* Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E827961C0123CE00265344 /* Ping.swift */; };
@@ -35,7 +34,6 @@
 		27E8278A1C01238600265344 /* tra-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tra-Bridging-Header.h"; sourceTree = "<group>"; };
 		27E8278D1C0123C400265344 /* Cast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		27E8278E1C0123C400265344 /* IcmpHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcmpHeader.swift; sourceTree = "<group>"; };
-		27E8278F1C0123C400265344 /* IcmpPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcmpPacket.swift; sourceTree = "<group>"; };
 		27E827901C0123C400265344 /* IpHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpHeader.swift; sourceTree = "<group>"; };
 		27E827951C0123CE00265344 /* NetName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetName.swift; sourceTree = "<group>"; };
 		27E827961C0123CE00265344 /* Ping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ping.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 				27E827971C0123CE00265344 /* Result.swift */,
 				27E8278D1C0123C400265344 /* Cast.swift */,
 				27E8278E1C0123C400265344 /* IcmpHeader.swift */,
-				27E8278F1C0123C400265344 /* IcmpPacket.swift */,
 				27E827901C0123C400265344 /* IpHeader.swift */,
 				27E827831C01234700265344 /* main.swift */,
 			);
@@ -142,7 +139,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27E827931C0123C400265344 /* IcmpPacket.swift in Sources */,
 				27E827921C0123C400265344 /* IcmpHeader.swift in Sources */,
 				27E827911C0123C400265344 /* Cast.swift in Sources */,
 				27E827841C01234700265344 /* main.swift in Sources */,
@@ -276,6 +272,7 @@
 				27E827891C01234700265344 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
